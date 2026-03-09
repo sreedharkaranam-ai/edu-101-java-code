@@ -64,7 +64,20 @@ exercise environment.
 ### Example 2
 <pre>
 - (optional) : pkill -u $(whoami) temporal
-- terminal 4 : temporal server start-dev --port 7234 --ui-port 8080 --db-filename cluster2.db
+- terminal 4 : 
+
+temporal server start-dev --port 7234 --ui-port 8080 --db-filename cluster2.db & \
+sleep 5 && \
+temporal operator search-attribute create \
+  --namespace default \
+  --type Keyword --name CustomKeywordField \
+  --type Int --name CustomIntField \
+  --type Double --name CustomDoubleField \
+  --type Bool --name CustomBoolField \
+  --type Datetime --name CustomDatetimeField \
+  --type Text --name CustomStringField \
+  --type KeywordList --name CustomKeywordListField
+
 - terminal 5 : 
     - git clone https://github.com/temporalio/samples-java
     - cd samples-java
