@@ -66,7 +66,7 @@ exercise environment.
 - (optional) : pkill -u $(whoami) temporal
 - terminal 4 : 
 
-temporal server start-dev --port 7234 --ui-port 8080 --db-filename cluster2.db & \
+temporal server start-dev --ui-port 8080 --db-filename cluster2.db & \
 sleep 5 && \
 temporal operator search-attribute create \
   --namespace default \
