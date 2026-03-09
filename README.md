@@ -4,6 +4,7 @@ It's important to remember that the example code used in this course was designe
 
 For the exercises, make sure to run `temporal server start-dev --ui-port 8080 --db-filename clusterdata.db` in one terminal to start the Temporal server. For more details on this command, please refer to the `Setting up a Local Development Environment` chapter in the course. Note: If you're using the Codespaces environment to run this exercise, you can skip this step.
 
+
 ## Hands-On Exercises
 
 | Directory Name                | Exercise                                            |
@@ -43,3 +44,30 @@ Alternatively, you can follow
 [these instructions](https://learn.temporal.io/getting_started/java/dev_environment/) to
 set up your own Temporal Cluster with Temporal CLI, which you can use as an
 exercise environment.
+
+
+## Steps to run
+
+<pre>
+- curl -sSf https://temporal.download/cli/installer.sh | sh && echo "$HOME/.temporalio/bin" >> $GITHUB_PATH
+</pre>
+
+### Example 1
+<pre>
+- pkill -u $(whoami) temporal
+- cd example1
+- terminal 1 : temporal server start-dev --ui-port 8081
+- terminal 2 : mvn clean compile && mvn exec:java -Dexec.mainClass="helloworkflow.SayHelloWorker"
+- terminal 3 : mvn exec:java -Dexec.mainClass="helloworkflow.Starter"
+</pre>
+
+### Example 2
+<pre>
+- (optional) : pkill -u $(whoami) temporal
+- terminal 4 : temporal server start-dev --port 7234 --ui-port 8080 --db-filename cluster2.db
+- terminal 5 : 
+    - git clone https://github.com/temporalio/samples-java
+    - cd samples-java
+    - ./gradlew build
+    - ./gradlew -q execute -PmainClass=io.temporal.samples.hello.HelloAccumulator
+</pre>
