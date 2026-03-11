@@ -84,3 +84,21 @@ temporal operator search-attribute create \
     - ./gradlew build
     - ./gradlew -q execute -PmainClass=io.temporal.samples.hello.HelloAccumulator
 </pre>
+
+
+<pre>
+## Local setup
+
+(Reference: https://docs.temporal.io/develop/java/set-up-your-local-java )
+
+Windows
+
+- Download from : https://temporal.download/cli/archive/latest?platform=windows&arch=amd64
+- Add temporal.exe to PATH
+- mkdir C:/tools
+- mkdir C:/tools/temporal
+- Move your extracted temporal.exe into that folder.
+- Edit environment variables -> User variables -> , look for the variable named Path and select it. -> Click Edit -> In the new list that appears, click New on the right side. -> Type or paste the full path to the folder where you put the file (e.g., C:\tools\temporal)
+- temporal --version
+  
+</pre>
